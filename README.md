@@ -8,7 +8,7 @@ This project was created for the Udacity Front End Developer Nanodegree.
 Use the arrow keys to navigate your character around the screen.
 Try to reach the water without getting caught by any of the bugs!
 
-[![demo](./images/demo.png)]
+(./images/demo.png)
 
 
 ## Contributing
