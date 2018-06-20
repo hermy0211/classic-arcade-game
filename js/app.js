@@ -39,14 +39,30 @@ function closePopUp() {
 
 
 
-// 2. Enemies the Player Must Avoid
+// 2. Define a Class for Game Objects
 
-class Enemy {
-  // Variables applied to each instance
-  constructor(x, y, speed) {
-    this.sprite = 'images/enemy-bug.png';
+class GameObject {
+  // Define common properties and methods of game objects
+  constructor(x,y) {
     this.x = x;
     this.y = y;
+  }
+
+  render() {
+    // Render image
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+}
+
+
+
+// 3. Enemies the Player Must Avoid
+
+class Enemy extends GameObject {
+  // Variables applied to each instance
+  constructor(x, y, speed) {
+    super(x,y);
+    this.sprite = 'images/enemy-bug.png';
     this.speed = speed;
   }
 
@@ -63,8 +79,8 @@ class Enemy {
 
     // Check for collisions
     if (
-      player.x > this.x - 37 &&
-      player.x < this.x + 60 &&
+      player.x > this.x - 75 &&
+      player.x < this.x + 75 &&
       player.y > this.y - 30 &&
       player.y < this.y + 25
     ) {
@@ -72,23 +88,17 @@ class Enemy {
       player.y = 380;
     }
   }
-
-  render() {
-    // Render image
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
 }
 
 
 
-// 3. Players on the Screen
+// 4. Players on the Screen
 
-class Player {
+class Player extends GameObject {
   // Variables applied to each instance
   constructor(x, y) {
+    super(x,y);
     this.sprite = 'images/char-cat-girl.png';
-    this.x = x;
-    this.y = y;
   }
 
   update() {
@@ -113,11 +123,6 @@ class Player {
     }
   }
 
-  render() {
-    // Render image
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-  }
-
   handleInput(keyPress) {
     // Move player based on key press
     switch (keyPress) {
@@ -139,7 +144,7 @@ class Player {
 
 
 
-// 4. Instantiate Objects
+// 5. Instantiate Objects
 
 // Create enemy objects
 let allEnemies = [];
