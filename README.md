@@ -8,7 +8,14 @@ This project was created for the Udacity Front End Developer Nanodegree.
 Use the arrow keys to navigate your character around the screen.
 Try to reach the water without getting caught by any of the bugs!
 
-(./images/demo.png)
+
+## How to Run File
+
+1. Open the terminal.
+2. Clone the repository: `git clone https://github.com/hermy0211/classic-arcade-game.git`
+3. Open the directory to which you have cloned the repository.
+4. Run `index.html`.
+5. Enjoy!
 
 
 ## Contributing
